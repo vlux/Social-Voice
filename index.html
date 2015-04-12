@@ -1,54 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0" />
-<title>朋友圈发语音</title>
-<link href="bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="bootstrap/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="js/jquery-1.11.2.js"></script>
-<script type="text/javascript" src="js/jquery-scrollto.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script><script>
+ <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0" />
+  <title>朋友圈发语音</title>
+  <link href="bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="bootstrap/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="js/jquery-1.11.2.js"></script>
+  <script src="js/jquery-scrollto.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script>
 //声明_czc对象:
 var _czc = _czc || [];
 //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
 _czc.push(["_setAccount", "1254469683"]);
 </script>
-</head>
-<body>
-<div class="container-fluid page-container">
-<div class="row">
-<div class="col-xs-12 highcol hdmain">
-<h1>发送一条朋友圈语音</h1>
-<div class="cibox">
-<div class="ico-rec-start"><img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781214_5_99139996d4_o.png" alt="" /></div>
-<div class="ico-rec-recording hide"><img class="rc-1 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781334_5_2a4e35b4e8_o.png" alt="" /><!-- 2 -->
- <img class="rc-2 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781333_5_e3200f4d19_o.png" alt="" /><!-- 1 -->
- <img class="rc-3 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781336_5_5e066fdb53_o.png" alt="" /><!-- 4 -->
- <img class="rc-4 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781335_5_8991dbeddd_o.png" alt="" /><!-- 3 -->
- <img class="rc-5 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781337_5_cf4681741c_o.png" alt="" /></div>
-<div class="ico-rec-play hide" onclick="playVoiceByUser();return false;"><img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781215_5_7fe06370f6_o.png" alt="" /></div>
-<div class="ico-rec-playing hide"><img class="pi-1 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781219_5_2905ad457a_o.png" alt="" /> <img class="pi-2 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781220_5_001114eff2_o.png" alt="" /> <img class="pi-3 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781221_5_cacc5ecf9d_o.png" alt="" /></div>
-<div class="voice-time-bar"><span class="voice-time">0</span>s</div>
-</div>
-<div class="btnbox">
-<p id="tip">正在初始化，稍等一下</p>
-<div class="btn-rec-start hide"><a class="hdbtn hdbtn-1" href="javascript:;">开始录音</a></div>
-<div class="btn-rec-stop hide"><a class="hdbtn hdbtn-2" href="javascript:;" onclick="stopRecord();return false;">停止录音</a></div>
-<div class="btn-rec-restart hide"><a class="hdbtn hdbtn-1" href="javascript:;" onclick="restartRecord();return false;">重新录音</a></div>
-<div class="btn-rec-preshare hide"><a class="hdbtn hdbtn-1" href="javascript:;" onclick="return false;">正在保存语音...</a></div>
-<div class="btn-rec-share hide"><a class="hdbtn hdbtn-1" href="javascript:;" onclick="showShareGuide();return false;">分享到朋友圈</a></div>
-</div>
-<div class="overlaybg" onclick="hdOverlayBgClicked()"><img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/cleardot.gif" alt="" /></div>
-<div class="shareGuide" onclick="hdOverlayBgClicked()">
-<img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2782482_5_e24b6d811e_o.png" alt="" /></div>
-</div>
-</div>
-</div>
-<script type="text/javascript">
+ </head>
+ <body>
+  <div class="container-fluid page-container">
+   <div class="row">
+    <div class="col-xs-12 highcol hdmain">
+     <h1>发送一条朋友圈语音</h1>
+     <div class="cibox">
+      <div class="ico-rec-start">
+       <img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781214_5_99139996d4_o.png" alt="" />
+      </div>
+      <div class="ico-rec-recording hide">
+       <img class="rc-1 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781334_5_2a4e35b4e8_o.png" alt="" />
+       <!-- 2 -->
+       <img class="rc-2 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781333_5_e3200f4d19_o.png" alt="" />
+       <!-- 1 -->
+       <img class="rc-3 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781336_5_5e066fdb53_o.png" alt="" />
+       <!-- 4 -->
+       <img class="rc-4 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781335_5_8991dbeddd_o.png" alt="" />
+       <!-- 3 -->
+       <img class="rc-5 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781337_5_cf4681741c_o.png" alt="" />
+      </div>
+      <div class="ico-rec-play hide" onclick="playVoiceByUser();return false;">
+       <img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781215_5_7fe06370f6_o.png" alt="" />
+      </div>
+      <div class="ico-rec-playing hide">
+       <img class="pi-1 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781219_5_2905ad457a_o.png" alt="" />
+       <img class="pi-2 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781220_5_001114eff2_o.png" alt="" />
+       <img class="pi-3 hide" src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2781221_5_cacc5ecf9d_o.png" alt="" />
+      </div>
+      <div class="voice-time-bar">
+       <span class="voice-time">0</span>s
+      </div>
+     </div>
+     <div class="btnbox">
+      <p id="tip">正在初始化，稍等一下</p>
+      <div class="btn-rec-start hide">
+       <a class="hdbtn hdbtn-1" href="javascript:;">开始录音</a>
+      </div>
+      <div class="btn-rec-stop hide">
+       <a class="hdbtn hdbtn-2" href="javascript:;" onclick="stopRecord();return false;">停止录音</a>
+      </div>
+      <div class="btn-rec-restart hide">
+       <a class="hdbtn hdbtn-1" href="javascript:;" onclick="restartRecord();return false;">重新录音</a>
+      </div>
+      <div class="btn-rec-preshare hide">
+       <a class="hdbtn hdbtn-1" href="javascript:;" onclick="return false;">正在保存语音...</a>
+      </div>
+      <div class="btn-rec-share hide">
+       <a class="hdbtn hdbtn-1" href="javascript:;" onclick="showShareGuide();return false;">分享到朋友圈</a>
+      </div>
+     </div>
+     <div class="overlaybg" onclick="hdOverlayBgClicked()">
+      <img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/cleardot.gif" alt="" />
+     </div>
+     <div class="shareGuide" onclick="hdOverlayBgClicked()">
+      <img src="http://wx.100get.cn/addons/czt_voice/template/mobile/images/2782482_5_e24b6d811e_o.png" alt="" />
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/javascript">
  var voice_record_time=0;
  var voice_record_start = 0;
  function switchIconTo(s){
@@ -326,10 +355,12 @@ _czc.push(["_setAccount", "1254469683"]);
  $(window).on("load",_fixLayoutStyle);
 
 </script>
-<script type="text/javascript">
+  <script type="text/javascript">
  var isAndroid = false;
-</script><script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript">
-</script><script type="text/javascript">
+</script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript">
+</script>
+  <script type="text/javascript">
  var wxShareDataArray = [["\u670b\u53cb\u5708\u4e5f\u80fd\u53d1\u8bed\u97f3\u4e86\uff01","10\"","http://wx.100get.cn/addons/czt_voice/template/mobile/images/share_icon.jpg","http://wx.100get.cn/app/./index.php?i=6&j=6&c=entry&do=index&m=czt_voice"],
  ["\u670b\u53cb\u5708\u4e5f\u80fd\u53d1\u8bed\u97f3\u4e86\uff01","10\"","http://wx.100get.cn/addons/czt_voice/template/mobile/images/share_icon.png","http://wx.100get.cn/app/./index.php?i=6&j=6&c=entry&do=index&m=czt_voice"],
  ["\u670b\u53cb\u5708\u4e5f\u80fd\u53d1\u8bed\u97f3\u4e86\uff01","10\"","http://wx.100get.cn/addons/czt_voice/template/mobile/images/share_icon.jpg","http://wx.100get.cn/app/./index.php?i=6&j=6&c=entry&do=index&m=czt_voice"],
@@ -387,9 +418,8 @@ _czc.push(["_setAccount", "1254469683"]);
      });
  }
 </script>
-
-<div style="display:none">
-<script src="http://s95.cnzz.com/z_stat.php?id=1254469683&web_id=1254469683" language="JavaScript"></script>
-</div>
-</body>
+  <div style="display:none">
+   <script src="http://s95.cnzz.com/z_stat.php?id=1254469683&amp;web_id=1254469683" language="JavaScript"></script>
+  </div>
+ </body>
 </html>
