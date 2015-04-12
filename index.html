@@ -79,41 +79,14 @@ _czc.push(["_setAccount", "1254469683"]);
  }
 
  function onUploadDone(serverId){
-   // 激活下一步按钮
-
-   // 保存serverId到服务器
-   // $.ajax({
-   //   url:"http://wx.100get.cn/app/./index.php?i=6&j=6&c=entry&do=saverecord&m=czt_voice",
-   //   //dateType:"jsonp",
-   //   type:"POST",
-   //   data:{serverId:serverId,timeLength:voice_record_time}
-   // }).done(function(data){
-   //   if(data && data.ret === 0){
-   //     var serverId = data.serverId;
-// alert(serverId);
-       // $('.btn-next').show();
 
        wxShareDataArray[isAndroid ? 3 : 2][3] = "http://wx.100get.cn/app/./index.php?i=6&j=6&c=entry&do=index&m=czt_voice" +'&serverId=' + serverId+'&time=' + voice_record_time;
        changeWeixinShareData(isAndroid ? 3 : 2);
 
-
        //知道上传成功
        $('.btn-rec-share .hdbtn').addClass('hdbtn-2');
        $('.btn-rec-share .hdbtn').removeClass('hdbtn-1');
-
-
        switchBtnTo(["restart","share"]);
-
-   //   }else{
-   //     //失败
-   //     alert("语音保存失败，请重新录制!");
-   //   }
-   // }).complete(function(){
-
-   //   //alert("complete");
-
-   // });
-
  }
 
  var play_time_ti;
@@ -121,18 +94,6 @@ _czc.push(["_setAccount", "1254469683"]);
  function playVoice(id){
    is_playing=true;
    switchIconTo('playing');
-
-   /*
-   播放结束事件无法捕捉
-   wx.onVoicePlayEnd({
-     success: function (res) {
-       alert("play end.");
-       var localId = res.localId; // 返回音频的本地ID
-
-       switchIconTo('play');
-     }
-   });
-   */
 
    play_time_ti = setInterval(function(){
      var tt = $('.voice-time-bar .voice-time');
@@ -193,7 +154,6 @@ _czc.push(["_setAccount", "1254469683"]);
    $('.btn-rec-share .hdbtn').removeClass('hdbtn-2');
    $('.btn-rec-share .hdbtn').addClass('hdbtn-1');
 
-
    $('.voice-time-bar .voice-time').text(voice_record_time*1);
    $('.voice-time-bar').show();
 
@@ -212,8 +172,6 @@ _czc.push(["_setAccount", "1254469683"]);
 
    if(isRecording) return;
    isRecording=true;
-
-
 
    wx.onVoiceRecordEnd({
      // 录音时间超过一分钟没有停止的时候会执行 complete 回调
@@ -245,9 +203,7 @@ _czc.push(["_setAccount", "1254469683"]);
        switchIconTo('start');
      }
    });
-
  }
-
 
  function stopRecord(){
    isRecording=false;
@@ -270,9 +226,6 @@ _czc.push(["_setAccount", "1254469683"]);
  }
 
  $(function(){
-   // $('.btn-rec-start .hdbtn').on('touchstart',function(){
-   //   startRecord();
-   // });
    $('.btn-rec-start .hdbtn').on('click',function(){
      startRecord();
    });
